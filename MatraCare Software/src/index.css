@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-primary-light text-gray-800 antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #fdf2f8;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #f9a8d4;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ec4899;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Fade in with slide up */
+.fade-in {
+  animation: fadeIn 0.5s ease-out both;
+}
+.fade-in-slow {
+  animation: fadeIn 0.9s ease-out both;
+}
+.fade-in-delay-1 { animation-delay: 0.1s; }
+.fade-in-delay-2 { animation-delay: 0.2s; }
+.fade-in-delay-3 { animation-delay: 0.3s; }
+.fade-in-delay-4 { animation-delay: 0.4s; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in from left */
+.slide-in-left {
+  animation: slideInLeft 0.5s ease-out both;
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide in from right */
+.slide-in-right {
+  animation: slideInRight 0.5s ease-out both;
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Scale pop */
+.scale-in {
+  animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Floating animation for hero illustration */
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* Shimmer for loading skeletons */
+.skeleton {
+  background: linear-gradient(90deg, #fce7f3 25%, #fbcfe8 50%, #fce7f3 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 12px;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #be185d, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   MICRO-INTERACTIONS & BUTTON EFFECTS
+   ============================================ */
+
+/* Lift on hover effect */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(190, 24, 93, 0.15);
+}
+
+/* Button press effect */
+.btn-press {
+  transition: transform 0.1s ease;
+}
+.btn-press:active {
+  transform: scale(0.96);
+}
+
+/* Card hover glow */
+.card-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 20px 40px rgba(190, 24, 93, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Chip toggle animation */
+.chip-toggle {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.chip-toggle:active {
+  transform: scale(0.93);
+}
+
+/* ============================================
+   LOADING SKELETONS
+   ============================================ */
+.skeleton-card {
+  @apply rounded-3xl p-6 bg-white overflow-hidden;
+}
+.skeleton-line {
+  background: linear-gradient(90deg, #fce7f3 25%, #fbcfe8 50%, #fce7f3 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 12px;
+  height: 16px;
+  margin-bottom: 0.75rem;
+}
+.skeleton-line-short {
+  background: linear-gradient(90deg, #fce7f3 25%, #fbcfe8 50%, #fce7f3 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 12px;
+  height: 16px;
+  width: 60%;
+  margin-bottom: 0.75rem;
+}
+.skeleton-circle {
+  background: linear-gradient(90deg, #fce7f3 25%, #fbcfe8 50%, #fce7f3 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 9999px;
+  width: 48px;
+  height: 48px;
+}
+
+/* ============================================
+   GLASS MORPHISM
+   ============================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   FOCUS STYLES (Accessibility)
+   ============================================ */
+*:focus-visible {
+  outline: 2px solid #be185d;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ============================================
+   PAGE TRANSITION WRAPPER
+   ============================================ */
+.page-enter {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+/* ============================================
+   LOW DATA MODE
+   Disables all animations, transitions, and
+   GPU-heavy effects for slow networks / low-end
+   devices. Applied by toggling the Navbar ⚡ button.
+   ============================================ */
+body.low-data-mode *,
+body.low-data-mode *::before,
+body.low-data-mode *::after {
+  animation: none !important;
+  transition: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Simplify gradient backgrounds in low-data mode */
+body.low-data-mode .bg-gradient-to-br,
+body.low-data-mode .bg-gradient-to-r {
+  background: #fdf2f8 !important;
+}
+
+/* Remove heavy blur from sticky navbar */
+body.low-data-mode nav {
+  backdrop-filter: none !important;
+  background: white !important;
+}
+
+/* Flatten card shadows */
+body.low-data-mode .shadow-xl,
+body.low-data-mode .shadow-2xl,
+body.low-data-mode .shadow-lg {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+}
+
+/* Keep floated/animated illustrations still */
+body.low-data-mode .float {
+  animation: none !important;
+}
+
+/* Low-data mode indicator badge */
+body.low-data-mode::after {
+  content: '⚡ Low Data Mode';
+  position: fixed;
+  bottom: 4px;
+  right: 4px;
+  background: #f59e0b;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 99px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
