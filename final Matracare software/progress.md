@@ -165,19 +165,6 @@ VITE_GEMINI_KEY=your_gemini_api_key_here
 
 ---
 
-## Next Steps
-
-- Set Firestore security rules (allow read/write per authenticated user)
-- Enable Email/Password and Google providers in Firebase Console
-- Add push notifications for high-risk alerts
-- Integrate government API for real-time scheme eligibility
-- Deploy to Firebase Hosting or Vercel
-- Conduct user testing with healthcare workers
-- Optimize for low-end Android devices (PWA support)
-- Prepare final demo and video walkthrough
-
----
-
 ## Challenges Faced
 
 - Designing effective risk logic within limited time
